@@ -1,0 +1,156 @@
+html {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+#button-box {
+    font-size: 2.5rem; 
+    text-align: center;
+}
+
+#button-box > span {
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.button-styling {
+    text-align: center;
+	display: inline-block;
+	margin: 5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+}
+
+.button-styling:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+html {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr, 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header"
+    "main"
+    ;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+    
+}
+
+header {
+    grid-area: header;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+}
+
+#button-box {
+    font-size: 3rem;
+}
+
+.button-styling {
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+}
+
+.button-styling:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+*/
