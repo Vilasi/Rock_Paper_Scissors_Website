@@ -15,21 +15,28 @@ function computerChoice() {
 // Compares the computer's score to the player's score.
 let computerScore = 0;
 let userScore = 0;
+let currentRound = 0;
 let tieDetector = "";
 function playRound(computerSelection, userSelection) {
     if (userSelection === "Paper" && computerSelection === "Rock" || userSelection === "Rock" && computerSelection === "Scissors" || userSelection === "Scissors" && computerSelection === "Paper") {
         userScore += 1;
         tieDetector = false;
+        currentRound += 1;
     } else if (userSelection === computerSelection) {
         tieDetector = true;
+        currentRound += 1;
     } else {
         computerScore += 1;
         tieDetector = false;
+        currentRound += 1;
     }
 } 
 
 // Gets the div that holds the score.
 let scoreBox = document.getElementById("score-box");
+
+// Displays the current round.
+let domRound = document.getElementById("round");
 
 // Displays what the computer chooses.
 let domCompChoice = document.getElementById("computerSelection");
@@ -57,6 +64,7 @@ buttons.forEach((x) => {
         } else {
             tieParagraph.style.visibility = "hidden";
         }
+        domRound.textContent = `Round: ${currentRound}`;
         domUserScore.textContent = `Your Score: ${userScore}`;
         domComputerScore.textContent = `Computer Score: ${computerScore}`;
         
