@@ -8,14 +8,29 @@ let computerSelection = "";
 function computerChoice() {
     let computerNumberSelection = Math.floor(Math.random() * 3) + 1;
     if (computerNumberSelection === 1) {
-        computerSelection = "rock";
+        computerSelection = "Rock";
     } else if (computerNumberSelection === 2) {
-        computerSelection = "paper";
+        computerSelection = "Paper";
     } else {
-        computerSelection = "scissors";
+        computerSelection = "Scissors";
     }
     return computerSelection;
 }
+
+let computerScore = 0;
+let userScore = 0;
+function playRound(computerSelection, userSelection) {
+    if (userSelection === "Paper" && computerSelection === "Rock" || userSelection === "Rock" && computerSelection === "Scissors" || userSelection === "Scissors" && computerSelection === "Paper") {
+        userScore += 1;
+    } else if (userSelection === computerSelection) {
+        console.log("TIE");
+    } else {
+        computerScore += 1;
+    }
+} 
+
+
+
 
 //This adds listeners to each button. Takes their innerHTML and assigns it to variable userSelection
 //Ones one instance of function computerChoice()
@@ -23,7 +38,7 @@ function computerChoice() {
 let userSelection = "";
 const buttons = document.querySelectorAll('span');
 const SCORE = document.getElementById("score-box");
-const TEST = document.getElementById("test");
+const domCompScore = document.getElementById("computerSelection");
 buttons.forEach((x) => {
     x.addEventListener("click", (x) => {
         userSelection = x.target.innerText;
@@ -31,15 +46,13 @@ buttons.forEach((x) => {
         console.log(userSelection);
         console.log("computer selection is " + computerSelection);
         console.log(SCORE);
-        TEST.textContent = "Computer Chooses:" + ` ${computerSelection}`;
+        domCompScore.textContent = "Computer Chooses:" + ` ${computerSelection}`;
+        playRound(computerSelection, userSelection);
         // return userSelection;
         
     });
 });
 
-/* function playRound(computerSelection, userSelection) {
-    if 
-} */
 
 
 
