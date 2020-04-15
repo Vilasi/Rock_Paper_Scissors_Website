@@ -22,6 +22,7 @@ let userScore = 0;
 function playRound(computerSelection, userSelection) {
     if (userSelection === "Paper" && computerSelection === "Rock" || userSelection === "Rock" && computerSelection === "Scissors" || userSelection === "Scissors" && computerSelection === "Paper") {
         userScore += 1;
+
     } else if (userSelection === computerSelection) {
         console.log("TIE");
     } else {
@@ -37,16 +38,18 @@ function playRound(computerSelection, userSelection) {
 // TODO add call to playRound function
 let userSelection = "";
 const buttons = document.querySelectorAll('span');
-const SCORE = document.getElementById("score-box");
-const domCompScore = document.getElementById("computerSelection");
+const SCOREBOX = document.getElementById("score-box");
+const domCompChoice = document.getElementById("computerSelection");
+const domUserScore = document.getElementById("domUserScore");
+const domComputerScore = document.getElementById("domComputerScore");
 buttons.forEach((x) => {
     x.addEventListener("click", (x) => {
         userSelection = x.target.innerText;
         computerChoice();
         console.log(userSelection);
         console.log("computer selection is " + computerSelection);
-        console.log(SCORE);
-        domCompScore.textContent = "Computer Chooses:" + ` ${computerSelection}`;
+        console.log(SCOREBOX);
+        domCompChoice.textContent = "Computer Chooses:" + ` ${computerSelection}`;
         playRound(computerSelection, userSelection);
         // return userSelection;
         
