@@ -31,7 +31,7 @@ buttons.forEach((x) => {
         console.log(userSelection);
         console.log("computer selection is " + computerSelection);
         console.log(SCORE);
-        TEST.textContent = "your score is" + ` ${computerSelection}`;
+        TEST.textContent = "Computer Chooses:" + ` ${computerSelection}`;
         // return userSelection;
         
     });
