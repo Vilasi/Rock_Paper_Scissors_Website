@@ -20,15 +20,18 @@ function computerChoice() {
 //This adds listeners to each button. Takes their innerHTML and assigns it to variable userSelection
 //Ones one instance of function computerChoice()
 // TODO add call to playRound function
-const buttons = document.querySelectorAll('span');
 let userSelection = "";
+const buttons = document.querySelectorAll('span');
+const SCORE = document.getElementById("score-box");
+const TEST = document.getElementById("test");
 buttons.forEach((x) => {
     x.addEventListener("click", (x) => {
         userSelection = x.target.innerText;
         computerChoice();
         console.log(userSelection);
         console.log("computer selection is " + computerSelection);
-        
+        console.log(SCORE);
+        TEST.textContent = "your score is" + ` ${computerSelection}`;
         // return userSelection;
         
     });
