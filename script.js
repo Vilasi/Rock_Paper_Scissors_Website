@@ -1,9 +1,4 @@
-// DONE Function for Computer's Choice of Hand, Randomized
-// DONE Button Detection that impliments the game start, and return players choice as a variable to be used in the game function
-/* Function that takes player's choice and computer choice, runs a round, determines the winner, and either keeps score or returns score.
-    This Function also either displays the score to the DOM, or impliments another secion of code that displays the score to the DOM. */
-
-
+// Chooses the computer's hand based on a randomly chosen number.
 let computerSelection = "";
 function computerChoice() {
     let computerNumberSelection = Math.floor(Math.random() * 3) + 1;
@@ -17,6 +12,7 @@ function computerChoice() {
     return computerSelection;
 }
 
+// Compares the computer's score to the player's score.
 let computerScore = 0;
 let userScore = 0;
 let tieDetector = "";
@@ -32,26 +28,19 @@ function playRound(computerSelection, userSelection) {
     }
 } 
 
-
-
-
-//This adds listeners to each button. Takes their innerHTML and assigns it to variable userSelection
-//Ones one instance of function computerChoice()
-// TODO add call to playRound function
-
-//Gets the div that holds the score
+// Gets the div that holds the score.
 let scoreBox = document.getElementById("score-box");
 
-//displays what the computer chooses
+// Displays what the computer chooses.
 let domCompChoice = document.getElementById("computerSelection");
 
-//displays the user's score
+// To display the user's score.
 let domUserScore = document.getElementById("domUserScore");
 
-//displays the computer's score
+// To display the computer's score.
 let domComputerScore = document.getElementById("domComputerScore");
 
-
+// To display the tie message.
 let tieParagraph = document.getElementById("tie");
 tieParagraph.style.visibility = "hidden";
 
@@ -62,26 +51,12 @@ buttons.forEach((x) => {
         userSelection = x.target.innerText;
         computerChoice();
         domCompChoice.textContent = "Computer Chooses:" + ` ${computerSelection}`;
-
-
-
-
-        console.log(userSelection);
-        console.log("computer selection is " + computerSelection);
-        
-
-
-
-
-
-
         playRound(computerSelection, userSelection);
         if (tieDetector) {
             tieParagraph.style.visibility = "visible"
         } else {
             tieParagraph.style.visibility = "hidden";
         }
-        
         domUserScore.textContent = `Your Score: ${userScore}`;
         domComputerScore.textContent = `Computer Score: ${computerScore}`;
         
