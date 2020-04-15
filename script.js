@@ -19,14 +19,16 @@ function computerChoice() {
 
 let computerScore = 0;
 let userScore = 0;
+let tieDetector = "";
 function playRound(computerSelection, userSelection) {
     if (userSelection === "Paper" && computerSelection === "Rock" || userSelection === "Rock" && computerSelection === "Scissors" || userSelection === "Scissors" && computerSelection === "Paper") {
         userScore += 1;
-
+        tieDetector = false;
     } else if (userSelection === computerSelection) {
-        console.log("TIE");
+        tieDetector = true;
     } else {
         computerScore += 1;
+        tieDetector = false;
     }
 } 
 
@@ -36,22 +38,52 @@ function playRound(computerSelection, userSelection) {
 //This adds listeners to each button. Takes their innerHTML and assigns it to variable userSelection
 //Ones one instance of function computerChoice()
 // TODO add call to playRound function
+
+//Gets the div that holds the score
+let scoreBox = document.getElementById("score-box");
+
+//displays what the computer chooses
+let domCompChoice = document.getElementById("computerSelection");
+
+//displays the user's score
+let domUserScore = document.getElementById("domUserScore");
+
+//displays the computer's score
+let domComputerScore = document.getElementById("domComputerScore");
+
+
+let tieParagraph = document.getElementById("tie");
+tieParagraph.style.visibility = "hidden";
+
 let userSelection = "";
 const buttons = document.querySelectorAll('span');
-const SCOREBOX = document.getElementById("score-box");
-const domCompChoice = document.getElementById("computerSelection");
-const domUserScore = document.getElementById("domUserScore");
-const domComputerScore = document.getElementById("domComputerScore");
 buttons.forEach((x) => {
     x.addEventListener("click", (x) => {
         userSelection = x.target.innerText;
         computerChoice();
+        domCompChoice.textContent = "Computer Chooses:" + ` ${computerSelection}`;
+
+
+
+
         console.log(userSelection);
         console.log("computer selection is " + computerSelection);
-        console.log(SCOREBOX);
-        domCompChoice.textContent = "Computer Chooses:" + ` ${computerSelection}`;
+        
+
+
+
+
+
+
         playRound(computerSelection, userSelection);
-        // return userSelection;
+        if (tieDetector) {
+            tieParagraph.style.visibility = "visible"
+        } else {
+            tieParagraph.style.visibility = "hidden";
+        }
+        
+        domUserScore.textContent = `Your Score: ${userScore}`;
+        domComputerScore.textContent = `Computer Score: ${computerScore}`;
         
     });
 });
