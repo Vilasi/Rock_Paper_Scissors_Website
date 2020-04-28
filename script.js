@@ -53,8 +53,8 @@ tieParagraph.style.visibility = "hidden";
 
 let userSelection = "";
 const buttons = document.querySelectorAll('span');
-buttons.forEach((x) => {
-    x.addEventListener("click", (x) => {
+buttons.forEach((btn) => {
+    btn.addEventListener("click", (x) => {
         userSelection = x.target.innerText;
         computerChoice();
         domCompChoice.textContent = "Computer Chooses:" + ` ${computerSelection}`;
