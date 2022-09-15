@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css" type="text/css">
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
-        <script defer src="./script.js"></script> 
-        <Title>Rock Paper Scissors</Title>
-    </head>
-    <body>
-        <div class="wrapper">
-            <header>
-                <h1>Rock Paper Scissors!</h1>
-                <h5>You vs The Computer</h5>
-            </header>
-            <main>
-                <!-- ontouchstart makes the span :active state work on mobile-->
-                <div id="button-box">
-                    <span class="button-styling" ontouchstart="">Rock</span>
-                    <span class="button-styling" ontouchstart="">Paper</span>
-                    <span class="button-styling" ontouchstart="">Scissors</span>
-                </div>
-                <div id="score-box">
-                    <p id="round">Round:</p>
-                    <p id="computerSelection">Computer Chooses:</p>
-                    <p id="domUserScore">Your Score:</p>
-                    <P id="domComputerScore">Computer Score:</P>
-                    <p id="tie">The round was a tie!</p>
-                </div>
-            </main>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./script.js"></script>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Rock Paper Scissors!</h1>
+        <h5>You vs The Computer</h5>
+        <h2 id="round">Round:</h2>
+      </header>
+      <main>
+        <!-- ontouchstart makes the span :active state work on mobile-->
+        <div id="button-box">
+          <span class="button-styling" ontouchstart="">Rock</span>
+          <span class="button-styling" ontouchstart="">Paper</span>
+          <span class="button-styling" ontouchstart="">Scissors</span>
         </div>
-    </body>
+        <div id="score-box">
+          <h2 id="userChoice">You Chose:</h2>
+          <h2 id="computerSelection">Computer Chose:</h2>
+          <p id="domUserScore">Your Score:</p>
+          <p id="domComputerScore">Computer Score:</p>
+          <h1 id="tie">TIE!</h1>
+          <!-- <h1 id="win">You WON!</h1>
+          <h1 id="loss">You LOST</h1> -->
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
