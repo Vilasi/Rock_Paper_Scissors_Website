@@ -19,7 +19,7 @@ function computerChoice() {
   return (computerSelection = selectionArray[Math.floor(Math.random() * 3)]);
 }
 
-// UserWon controls the final look and visibility of the message rendered each round - Win, Loss, or Tie
+// MessageToUser controls the final look and visibility of the DOM messages rendered each round - Win, Loss, Tie; Color; Visibility, etc
 class MessageToUser {
   constructor(variable) {
     this.variable = variable;
