@@ -19,35 +19,45 @@ function computerChoice() {
   return (computerSelection = selectionArray[Math.floor(Math.random() * 3)]);
 }
 
+// UserWon controls the final look and visibility of the message rendered each round - Win, Loss, or Tie
+class MessageToUser {
+  constructor(variable) {
+    this.variable = variable;
+  }
+
+  resultsMessage(message, visibility, color) {
+    this.variable.textContent = message;
+    this.variable.style.visibility = visibility;
+    this.variable.style.color = color;
+  }
+}
+
+let results = new MessageToUser(roundResultsMessage);
+// Default state on page load
+results.resultsMessage(null, 'hidden', null);
+
 function playRound(computerSelection, userSelection) {
   if (
     (userSelection === 'Paper' && computerSelection === 'Rock') ||
     (userSelection === 'Rock' && computerSelection === 'Scissors') ||
     (userSelection === 'Scissors' && computerSelection === 'Paper')
   ) {
-    roundResultsMessage.textContent = 'You WON!';
-    roundResultsMessage.style.visibility = 'visible';
-    roundResultsMessage.style.color = '#276FBF';
+    results.resultsMessage('You WON!', 'visible', '#276FBF');
     userScore += 1;
     currentRound += 1;
     return currentRound;
   } else if (userSelection === computerSelection) {
-    roundResultsMessage.textContent = 'TIE!';
-    roundResultsMessage.style.visibility = 'visible';
-    roundResultsMessage.style.color = 'grey';
+    results.resultsMessage('TIE!', 'visible', 'grey');
     currentRound += 1;
     return currentRound;
   } else {
-    roundResultsMessage.textContent = 'You LOST!';
-    roundResultsMessage.style.visibility = 'visible';
-    roundResultsMessage.style.color = 'red';
+    results.resultsMessage('You LOST!', 'visible', 'red');
     computerScore += 1;
     currentRound += 1;
     return currentRound;
   }
 }
 
-roundResultsMessage.style.visibility = 'hidden';
 if (!currentRound) {
   domComputerChoice.style.visibility = 'hidden';
   domUserChoice.style.visibility = 'hidden';
