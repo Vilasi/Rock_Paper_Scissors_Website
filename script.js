@@ -60,6 +60,7 @@ function playRound(computerSelection, userSelection) {
     return currentRound;
   }
 }
+
 function chosenHand(currentRound) {
   if (!currentRound) {
     domComputerChoice.style.visibility = 'hidden';
@@ -71,10 +72,20 @@ function chosenHand(currentRound) {
 }
 chosenHand(currentRound);
 
-// if (!currentRound) {
-//   domComputerChoice.style.visibility = 'hidden';
-//   domUserChoice.style.visibility = 'hidden';
-// }
+function scoreBoard(
+  userSelection,
+  computerSelection,
+  currentRound,
+  userScore,
+  computerScore
+) {
+  domUserChoice.textContent = `You Chose: ${userSelection}`;
+  domComputerChoice.textContent = `Computer Chooses: ${computerSelection}`;
+  domRound.textContent = `Round: ${currentRound}`;
+  domUserScore.textContent = `Your Score: ${userScore}`;
+  domComputerScore.textContent = `Computer Score: ${computerScore}`;
+}
+
 let userSelection = '';
 const buttons = document.querySelectorAll('span');
 buttons.forEach((btn) => {
@@ -84,15 +95,12 @@ buttons.forEach((btn) => {
 
     playRound(computerSelection, userSelection);
     chosenHand(currentRound);
-    // chosenHand(currentRound);
-    // if (currentRound) {
-    //   domComputerChoice.style.visibility = 'visible';
-    //   domUserChoice.style.visibility = 'visible';
-    // }
-    domUserChoice.textContent = `You Chose: ${userSelection}`;
-    domComputerChoice.textContent = `Computer Chooses: ${computerSelection}`;
-    domRound.textContent = `Round: ${currentRound}`;
-    domUserScore.textContent = `Your Score: ${userScore}`;
-    domComputerScore.textContent = `Computer Score: ${computerScore}`;
+    scoreBoard(
+      userSelection,
+      computerSelection,
+      currentRound,
+      userScore,
+      computerScore
+    );
   });
 });
