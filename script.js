@@ -45,23 +45,36 @@ function playRound(computerSelection, userSelection) {
     results.resultsMessage('You WON!', 'visible', '#276FBF');
     userScore += 1;
     currentRound += 1;
+
     return currentRound;
   } else if (userSelection === computerSelection) {
     results.resultsMessage('TIE!', 'visible', 'grey');
     currentRound += 1;
+
     return currentRound;
   } else {
     results.resultsMessage('You LOST!', 'visible', 'red');
     computerScore += 1;
     currentRound += 1;
+
     return currentRound;
   }
 }
-
-if (!currentRound) {
-  domComputerChoice.style.visibility = 'hidden';
-  domUserChoice.style.visibility = 'hidden';
+function chosenHand(currentRound) {
+  if (!currentRound) {
+    domComputerChoice.style.visibility = 'hidden';
+    domUserChoice.style.visibility = 'hidden';
+  } else {
+    domComputerChoice.style.visibility = 'visible';
+    domUserChoice.style.visibility = 'visible';
+  }
 }
+chosenHand(currentRound);
+
+// if (!currentRound) {
+//   domComputerChoice.style.visibility = 'hidden';
+//   domUserChoice.style.visibility = 'hidden';
+// }
 let userSelection = '';
 const buttons = document.querySelectorAll('span');
 buttons.forEach((btn) => {
@@ -70,11 +83,12 @@ buttons.forEach((btn) => {
     computerChoice();
 
     playRound(computerSelection, userSelection);
-
-    if (currentRound) {
-      domComputerChoice.style.visibility = 'visible';
-      domUserChoice.style.visibility = 'visible';
-    }
+    chosenHand(currentRound);
+    // chosenHand(currentRound);
+    // if (currentRound) {
+    //   domComputerChoice.style.visibility = 'visible';
+    //   domUserChoice.style.visibility = 'visible';
+    // }
     domUserChoice.textContent = `You Chose: ${userSelection}`;
     domComputerChoice.textContent = `Computer Chooses: ${computerSelection}`;
     domRound.textContent = `Round: ${currentRound}`;
